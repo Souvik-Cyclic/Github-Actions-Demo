@@ -40,11 +40,11 @@ jobs:
           cd go-app
           gofmt -w .
 
-      - name: Commit and Push Changes
+      - name: Commit and Push Changes to PR Branch
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+          BRANCH_NAME=$(echo $GITHUB_REF | sed 's/refs\/heads\///')
           git add .
           git commit -m 'Format Go code' || echo "No changes to commit"
           git push origin $BRANCH_NAME
