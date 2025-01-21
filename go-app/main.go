@@ -6,6 +6,7 @@ import (
 
 func main() {
 	app := fiber.New()
+	hi
 
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.JSON(fiber.Map{
