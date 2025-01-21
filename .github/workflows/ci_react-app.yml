@@ -1,0 +1,36 @@
+name: React TypeScript App CI Pipeline
+
+on:
+  push:
+    paths:
+      - 'react-app/**'
+    branches:
+      - main
+  pull_request:
+    paths:
+      - 'react-app/**'
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4.2.2
+
+      - name: Setup Node.js Environment for React
+        uses: actions/setup-node@v4.1.0
+        with:
+          node-version: '22'
+
+      - name: Install pnpm
+        run: |
+          npm install -g pnpm
+
+      - name: Build React App
+        run: |
+          cd react-app
+          pnpm install
+          pnpm run build
