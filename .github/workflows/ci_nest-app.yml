@@ -11,6 +11,10 @@ on:
       - 'nest-app/**'
     branches:
       - main
+    types:
+      - opened
+      - synchronize
+      - reopened
 
 jobs:
   build:

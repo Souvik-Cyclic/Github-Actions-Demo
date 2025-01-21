@@ -11,6 +11,10 @@ on:
       - 'react-app/**'
     branches:
       - main
+    types:
+      - opened
+      - synchronize
+      - reopened
 
 jobs:
   build:
