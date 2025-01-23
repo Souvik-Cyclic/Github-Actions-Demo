@@ -12,7 +12,7 @@ func main() {
 		return c.JSON(fiber.Map{
 			"message": "Hello, World!",
 
-			"timestamp": time.	Now().Unix(),
+			"timestamp": time.Now().Unix(),
 		})
 	})
 
