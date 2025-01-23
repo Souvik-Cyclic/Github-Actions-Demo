@@ -6,15 +6,15 @@ import (
 )
 
 func main() {
-								app := fiber.New()
+	app := fiber.New()
 
-								app.Get("/", func(c *fiber.Ctx) error {
-									return c.JSON(fiber.Map{
-										"message": "Hello, World!",
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.JSON(fiber.Map{
+			"message": "Hello, World!",
 
-										"timestamp": time.Now().Unix(),
-									})
-								})
+			"timestamp": time.Now().Unix(),
+		})
+	})
 
 	app.Listen(":8080")
 }
