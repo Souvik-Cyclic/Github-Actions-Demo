@@ -31,7 +31,21 @@ jobs:
         uses: actions/setup-go@v5.3.0
         with:
           go-version: "1.23"
-          cache: true
+
+      - name: Ensure go.sum is present
+        run: |
+          cd go-app
+          go mod tidy
+
+      - name: Cache Go Modules
+        uses: actions/cache@v4.2.0
+        with:
+          path: |
+            ~/go/pkg/mod
+            ~/.cache/go-build
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
 
       - name: Format Go Code
         run: |
