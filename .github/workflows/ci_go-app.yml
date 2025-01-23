@@ -42,6 +42,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-go-
 
+      - name: Ensure go.sum Exists
+        run: |
+            if [ ! -f go-app/go.sum ]; then
+              echo "go.sum is missing, running 'go mod tidy' in go-app directory."
+              cd go-app
+              go mod tidy
+            fi
+
       - name: Format Go Code
         run: |
           cd go-app
