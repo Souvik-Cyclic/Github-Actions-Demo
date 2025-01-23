@@ -81,5 +81,5 @@ jobs:
         run: |
           cd python-app
           python app.py &
-          sleep 7
-          pkill -f "python app.py"
+          sleep 5
+          pkill -f app.py
