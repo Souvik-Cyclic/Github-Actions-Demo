@@ -36,5 +36,8 @@ jobs:
             exit 1
           fi
   
-      - name: Say Hi
-        run: echo "Hello, World!"
+      - name: Install Dependencies
+        run: |
+            cd apps/face-swap
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
