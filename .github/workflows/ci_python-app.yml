@@ -53,6 +53,7 @@ jobs:
       - name: Format Code
         run: |
           cd python-app
+          pip install black
           black .
         continue-on-error: false
       
