@@ -69,4 +69,4 @@ jobs:
       - name: Build Go App
         run: |
           cd go-app
-          go build ./...
+          go build
