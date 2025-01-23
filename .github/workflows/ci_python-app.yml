@@ -70,4 +70,4 @@ jobs:
       - name: Test Run Application
         run: |
           cd python-app
-          python app.py
+          timeout 30s python app.py
