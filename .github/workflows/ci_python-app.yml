@@ -54,6 +54,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
+      - name: Sort Imports
+        run: |
+          cd python-app
+          pip install isort
+          isort .
+
       - name: Format Code
         run: |
           cd python-app
@@ -74,4 +80,6 @@ jobs:
       - name: Test Run Application
         run: |
           cd python-app
-          timeout 30s python app.py
+          python app.py &
+          sleep 7
+          pkill -f "python app.py"
