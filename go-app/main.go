@@ -9,66 +9,10 @@ func main() {
 	app := fiber.New()
 
 	app.Get("/", func(c *fiber.Ctx) error {
-					return c.JSON(fiber.Map{
-																			"message":   "Hello, World!",
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-																			"timestamp": time.Now().Unix(),
+		return c.JSON(fiber.Map{
+			"message": "Hello, World!",
+
+			"timestamp": time.Now().Unix(),
 		})
 	})
 
