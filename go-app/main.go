@@ -1,8 +1,8 @@
 package main
 
-import (	
-				"github.com/gofiber/fiber/v2"
-			"time"
+import (
+	"github.com/gofiber/fiber/v2"
+	"time"
 )
 
 func main() {
@@ -13,9 +13,9 @@ func main() {
 				"message": "Hello, World!",
 				"message1": "You are welcome to the world of Go",
 
-				"timestamp": time.Now().Unix(),
-			})
+			"timestamp": time.Now().Unix(),
+		})
 	})
 
-							app.Listen(":8080")
+	app.Listen(":8080")
 }
