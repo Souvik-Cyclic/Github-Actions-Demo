@@ -52,6 +52,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-
 
+      - name: Create .env file
+        run: |
+          touch go-app/.env
+
       - name: Build Docker image
         uses: docker/build-push-action@v2
         with:
