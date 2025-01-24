@@ -3,12 +3,12 @@ name: NestJS App CI Pipeline
 on:
   push:
     paths:
-      - 'nest-app/**'
+      - "nest-app/**"
     branches:
       - main
   pull_request:
     paths:
-      - 'nest-app/**'
+      - "nest-app/**"
     branches:
       - main
     types:
@@ -27,7 +27,7 @@ jobs:
       - name: Setup Node.js Environment for NestJS
         uses: actions/setup-node@v4.1.0
         with:
-          node-version: '22'
+          node-version: "22"
 
       - name: Install pnpm
         run: |
@@ -38,3 +38,13 @@ jobs:
           cd nest-app
           pnpm install
           pnpm run build
+
+      - name: Commit and Push Formatting Changes
+        if: success()
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git add -u
+          git diff --quiet && git diff --staged --quiet || (git commit -m 'chore(nest-api): Automated Code Formatting' && git push)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
