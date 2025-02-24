@@ -11,7 +11,7 @@ func main() {
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.JSON(fiber.Map{
 			"message":  "Hello, World!",
-			"message1": "You are welcome to the world of Go",
+			"message1": "You are welcome to the world of Go, Have a nice day!",
 
 			"timestamp": time.Now().Unix(),
 		})
