@@ -5,6 +5,7 @@ on:
       - "go-app/**"
     branches: [main]
   pull_request:
+    types: [opened, synchronize, reopened]
     paths:
       - "go-app/**"
     branches: [main]
