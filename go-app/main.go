@@ -12,7 +12,7 @@ func main() {
 		return c.JSON(fiber.Map{
 			"message":  "Hello, World!",
 			"message1": "You are welcome to the world of Go, Have a nice day!",
-
+			"message2": "This is a simple Go application running in a Docker container",
 			"timestamp": time.Now().Unix(),
 		})
 	})
